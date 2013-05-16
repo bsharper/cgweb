@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>CG Monitor</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300' rel='stylesheet' type='text/css'>
+
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-editable.css" rel="stylesheet" media="screen">
+<link href='css/main.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+	<h2>Latest Statistics <button class='btn' id="autorefresh" data-toggle="button">Auto Refresh</button></h2>
+	<div data-alert="latest" class="alert alert-box" style="display:none"></div>
+	<div id="latest" class="notice" width="99%"></div>
+	<hr/>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-editable.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/sprintf.min.js"></script>
+<script>
+
+function refreshStatus() {
+	updateWorkerTable();
+}
+continueRefresh = true;
+firstRun = true;
+
+$(function() {
+	addLoadingAnimation("latest");
+	refreshStatus();
+});
+
+</script>
+
+<div id="poolModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="poolModalHeader"></h3>
+	</div>
+	<div class="modal-body"></div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+</div>
+</body>
+</html>

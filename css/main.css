@@ -1,0 +1,129 @@
+#editable-buttons {
+  text-align: center;
+  margin: 10px;
+}
+.cstd {
+  background-color: rgb(230,230,230);
+}
+#autorefresh {
+  float:right;
+}
+.totals {
+  font-weight: bold;
+}
+.popover {
+  max-width: 1000px;
+}
+table.poolTable td {
+  padding-left: 30px;
+}
+table.results {
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+table.results td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+table.results tr {
+    border: 1px solid black;
+    border-collapse: collapse;   
+}
+table.results th {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+td.worker {
+  font-weight: bolder;
+}
+td.worker_speed {
+  padding-left: 50px;
+}
+td.subtotal, td.subtotal_info {
+  padding-left:100px;
+}
+td.total,td.total_speed {
+  font-size: 18px;
+  font-weight: bolder;
+  border-top: 1px solid black;
+}
+td.total_speed {
+  padding-left: 50px;
+}
+.totals {
+  border-collapse: 0px;
+  border-spacing: 0px;
+  border: 0;
+}
+.loader {
+    text-align: center;    
+}
+.loader span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    margin: 50px auto;
+    background: black;
+    border-radius: 50px;
+    -webkit-animation: loader 0.9s infinite alternate;
+    -moz-animation: loader 0.9s infinite alternate;
+}
+.loader span:nth-of-type(2) {
+    -webkit-animation-delay: 0.3s;
+    -moz-animation-delay: 0.3s;
+}
+.loader span:nth-of-type(3) {
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+}
+@-webkit-keyframes loader {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.9;
+    -webkit-transform: translateY(0);
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+    opacity: 0.1;
+    -webkit-transform: translateY(-21px);
+  }
+}
+@-moz-keyframes loader {
+  0% {
+    width: 10px;
+    height: 10px;
+    opacity: 0.9;
+    -moz-transform: translateY(0);
+  }
+  100% {
+    width: 24px;
+    height: 24px;
+    opacity: 0.1;
+    -moz-transform: translateY(-21px);
+  }
+}
+.small {
+	font-size: 12px;
+	font-style: italic;
+}
+.notice {
+	margin-left: 20px;
+}
+.error {
+	color:red;
+}
+html, body {
+font-family: 'Open Sans', sans-serif;
+margin: 10px;
+}
