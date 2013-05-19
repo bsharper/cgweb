@@ -1,10 +1,60 @@
+.status-box {
+  width: 25px;
+  height: 25px;
+}
+.italics {
+  font-style: italic;
+}
+td.worker-status {
+  -webkit-transition: all 100ms ease;
+  -moz-transition: all 100ms ease;
+  -ms-transition: all 100ms ease;
+  -o-transition: all 100ms ease;
+  transition: all 100ms ease;
+}
+.mid {
+  text-align: center;
+  vertical-align: middle;
+  margin-left:auto;
+  margin-right:auto;
+}
+.green {
+  background-color: green;
+}
+.red {
+ background-color: red; 
+}
+#main-content {
+  padding-top: 50px;
+}
+#lead {
+  float:left;
+  clear:right;
+}
+.topRight {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  float:right;
+  clear:none;
+}
+#refreshSwitch {
+  max-height: 30px;
+
+}
+.otherrow{
+  background-color: #E0E0E0;
+}
 #editable-buttons {
   text-align: center;
   margin: 10px;
 }
-.cstd {
-  background-color: rgb(230,230,230);
+.right {
+  float:right;
 }
+.cstd {
+  background-color: #E0E0E0;
+}
+
 #autorefresh {
   float:right;
 }
@@ -15,7 +65,8 @@
   max-width: 1000px;
 }
 table.poolTable td {
-  padding-left: 30px;
+  padding-left: 0px;
+  min-width: 120px;
 }
 table.results {
   margin-left: auto;
@@ -44,12 +95,7 @@ table.results th {
 td.worker {
   font-weight: bolder;
 }
-td.worker_speed {
-  padding-left: 50px;
-}
-td.subtotal, td.subtotal_info {
-  padding-left:100px;
-}
+
 td.total,td.total_speed {
   font-size: 18px;
   font-weight: bolder;
@@ -113,17 +159,68 @@ td.total_speed {
     -moz-transform: translateY(-21px);
   }
 }
+#loadAllMessages {
+  float:right;
+}
+#clearMessages {
+  float:right;
+}
+#refreshInterval {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+  margin-right: 20px;
+}
 .small {
 	font-size: 12px;
 	font-style: italic;
 }
 .notice {
-	margin-left: 20px;
+	
 }
 .error {
 	color:red;
 }
+/*font-family: 'Open Sans', sans-serif;*/
 html, body {
-font-family: 'Open Sans', sans-serif;
-margin: 10px;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+margin: 3px;
+}
+div.spinner {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+div.spinner div {
+  width: 12%;
+  height: 26%;
+  background: #000;
+  position: absolute;
+  left: 44.5%;
+  top: 37%;
+  opacity: 0;
+  -webkit-animation: fade 1s linear infinite;
+  -webkit-border-radius: 50px;
+  -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+div.spinner div.bar1 {-webkit-transform:rotate(0deg) translate(0, -142%); -webkit-animation-delay: 0s;}    
+div.spinner div.bar2 {-webkit-transform:rotate(30deg) translate(0, -142%); -webkit-animation-delay: -0.9167s;}
+div.spinner div.bar3 {-webkit-transform:rotate(60deg) translate(0, -142%); -webkit-animation-delay: -0.833s;}
+div.spinner div.bar4 {-webkit-transform:rotate(90deg) translate(0, -142%); -webkit-animation-delay: -0.75s;}
+div.spinner div.bar5 {-webkit-transform:rotate(120deg) translate(0, -142%); -webkit-animation-delay: -0.667s;}
+div.spinner div.bar6 {-webkit-transform:rotate(150deg) translate(0, -142%); -webkit-animation-delay: -0.5833s;}
+div.spinner div.bar7 {-webkit-transform:rotate(180deg) translate(0, -142%); -webkit-animation-delay: -0.5s;}
+div.spinner div.bar8 {-webkit-transform:rotate(210deg) translate(0, -142%); -webkit-animation-delay: -0.41667s;}
+div.spinner div.bar9 {-webkit-transform:rotate(240deg) translate(0, -142%); -webkit-animation-delay: -0.333s;}
+div.spinner div.bar10 {-webkit-transform:rotate(270deg) translate(0, -142%); -webkit-animation-delay: -0.25s;}
+div.spinner div.bar11 {-webkit-transform:rotate(300deg) translate(0, -142%); -webkit-animation-delay: -0.1667s;}
+div.spinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -142%); -webkit-animation-delay: -0.0833s;}
+
+ @-webkit-keyframes fade {
+  from {opacity: 1;}
+  to {opacity: 0.25;}
 }

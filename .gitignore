@@ -1,2 +1,7 @@
 old/
 ._
+monitoring/
+js/old/
+css/old/
+cgweb/
+server-config.json

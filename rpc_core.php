@@ -2,7 +2,7 @@
 
 global $workers;
 
-$string = file_get_contents("server.config");
+$string = file_get_contents("server-config.json");
 $config=json_decode($string,true);
 $workers = $config['worker_ips'];
 
@@ -57,8 +57,8 @@ function revert($str) {
 	return str_replace(array("\1", "\2", "\3", "\4"), array("|", "\\", "=", ","), $str);
 }
 function rpc($addr, $port, $command, $parameter, $json=true) {
-	$socksndtimeoutsec = 10;
-	$sockrcvtimeoutsec = 40;
+	$socksndtimeoutsec = 1;
+	$sockrcvtimeoutsec = 1;
 
 	$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	if ($socket === false || $socket === null) {
@@ -118,12 +118,16 @@ if (isset($_REQUEST['name'])) {
 	$nm = $_REQUEST['name'];
 	$val = $_REQUEST['value'];
 	$pk =  $_REQUEST['pk'];
-
-	$els = explode('|', $pk);
-	$gpu = $els[1];
-	$worker = $els[0];
-
-	$rv = rpc($workers[$worker], 4028, $nm, $gpu.",".$val);
+	if (strlen($pk) > 0 && strstr($pk, '|')) {
+		$els = explode('|', $pk);
+		$gpu = $els[1];
+		$worker = $els[0];
+		$param = $gpu.",".$val;
+	} else {
+		$worker = $_REQUEST['worker'];
+		$param = $_REQUEST['param'];
+	}
+	$rv = rpc($workers[$worker], 4028, $nm, $param);
 	echo json_encode($rv);
 }
 ?>
