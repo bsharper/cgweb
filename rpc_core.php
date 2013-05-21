@@ -107,6 +107,17 @@ if (isset($_REQUEST['update'])) {
 	}
 	echo json_encode($rvs);
 }
+
+if (isset($_REQUEST['save'])) {
+	$save = $_REQUEST['save'];	
+	file_put_contents("server-config.json", $save);
+}
+if (isset($_REQUEST['ip'])) {
+	$ip = $_REQUEST['ip'];	
+	$rv = rpc($ip, 4028, "summary", "");
+	echo json_encode($rv);
+}
+
 if (isset($_REQUEST['name'])) {
 	global $workers;
 	

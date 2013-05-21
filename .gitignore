@@ -5,3 +5,11 @@ js/old/
 css/old/
 cgweb/
 server-config.json
+db
+css
+._js
+.apdisk
+.htaccess
+css/._clippy.css
+db/messages.sqlite3
+messaging.sqlite3

@@ -15,6 +15,7 @@
 	<div class="navbar navbar-fixed-top">
 	<div class="navbar-inner">
 	<div class="container">
+		<button class='btn' onclick='updateManageWorkers(); $("#workerScanner").modal()'>Workers</button>
 		<div class="topRight">
 			<span id="refreshInterval">Refresh (ms)  <span id="refreshTime"></span></span>
 			<div class='switch' id="refreshSwitch" data-on="success" data-on-label='On' data-off-label='Off'>
@@ -24,7 +25,7 @@
 			<div class='switch' id="rowSwitch" data-on-label='All' data-off-label='Best'>
 				<input type='checkbox'>
 			</div>
-			<div id="connectionStatus"></div>
+			
 		</div>
 	</div>
 	</div>
@@ -38,11 +39,13 @@
 		<div id="messages" class="well"><button class='btn' id="clearMessages" onclick='clearMessages()' >Clear</button><button class='btn' id="loadAllMessages" onclick='loadAllMessages()' >Load all</button>
 			<ul id="pastMessages"></ul>
 		</div>
-		<div class='lead'>Connection Messages</div>
+		<div id="connectionInfo" >
+		<div class='lead'>Connection Messages <button class='btn' onclick='$("#connectionInfo").fadeOut()'>Hide</button></div>
 		<div id="connectionWell" class="well">
 			<ul id="connectionLog"></ul>
 		</div>
 		</div>
+	</div>
 	</div>
 
 
@@ -64,7 +67,40 @@
 
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="poolManager">Pool Management</h3>
-		<label for=""
+	</div>
+	<div class="modal-body"></div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+</div>
+<div id="workerScanner" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<ul class="nav nav-tabs" id="workerTab">
+			<li class="active"><a data-toggle='tab' href='#workerScan'>Scan for workers</a></li>
+			<li class=""><a data-toggle='tab' href='#workerManage'>Manage workers</a></li>
+		</ul>
+ 
+		<div class='tab-content'>
+			<div class='tab-pane active' id='workerScan'>
+			<h3 id="workerScanner">Scan for workers</h3>
+			<label for="baseIP">Base IP</label><input placeholder="192.168.0." type="text" id="baseIP" value="" />
+			<label for="startRange">Start</label><input placeholder="1" type="text" id="startRange" value="" />
+			<label for="endRange">End</label><input placeholder="254" type="text" id="endRange" value = "" />
+			<button class='btn btn-success' id="scanButton" onclick='scanWorkers()'>Scan</button>
+			<hr/>
+			<h3 id="scanResults">Results: idle</h3>
+			<div id="scanResultBody" class="well">
+				<ul id="scanResultList"></ul>
+			</div>
+		</div>
+		<div class='tab-pane' id='workerManage'>
+			<h3 id="workerScanner">Manage Workers</h3>
+			<ul id="workerList"></ul>
+			<button class='btn btn-success' onclick='saveWorkers()'>Save</button>
+		</div>
+	</div>
 	</div>
 	<div class="modal-body"></div>
 	<div class="modal-footer">
@@ -91,6 +127,7 @@
 <script src="js/mon-worker-report.js"></script>
 <script src="js/mon-messages.js"></script>
 <script src="js/mon-pools.js"></script>
+<script src="js/mon-workers.js"></script>
 <script src="js/mon-page-ready.js"></script>
 
 </body>

@@ -68,7 +68,7 @@ function loadDBMessages() {
 				if (row['title']=="information") icon = "<span class='icon-info-sign'></span>";
 				else if (row['title']=="error") icon= "<span class='icon-warning-sign'></span>";
 				clearMessageNumber = Math.max(clearMessageNumber, row['message_id']);
-				li = sprintf("<li>%s: <strong>%s %s</strong> <span class='italics'>(%s)</span> </li>",moment.unix(row['time']).format('MM/DD/YYYY, h:mm:ss A'), row['message'],icon,  row['address']);
+				li = sprintf("<li>%s: <strong>%s %s</strong> <span class='italics'>(%s)</span> </li>",moment.unix(row['time']).format('MM/DD/YYYY, h:mm:ss A'), row['message'], icon,  row['address']);
 				$("#pastMessages").append(li);
 			}
 		}
