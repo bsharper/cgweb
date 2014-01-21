@@ -85,7 +85,7 @@ function rpc($addr, $port, $command, $parameter, $json=true) {
 }
 
 function workerInfo($ip) {	
-	$rvs = [];
+	$rvs = array();
 	$j = rpc($ip, 4028, 'gpucount', '');
 	if (!array_key_exists("GPUS", $j)) return "error";
 	$cnt = $j["GPUS"][0]["Count"];
